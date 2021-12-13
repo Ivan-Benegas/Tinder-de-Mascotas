@@ -30,7 +30,7 @@ archivo y crear la base de datos con ese nuevo nombre. También asegurarse de qu
 "localhost" y el puerto "3306".
 4) En Spring Tool Suite 4, click derecho en el proyecto > Run As > Spring Boot App.
 5) Ir al navegador y entrar en "http://localhost:8080/".
-6) Si todo esto no funciona, probar de ejecutar estas lineas de codigo en Workbench:
+6) Si todo esto no funciona, probar de ejecutar estas líneas de codigo en Workbench:
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 
