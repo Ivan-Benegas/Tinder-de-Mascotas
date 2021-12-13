@@ -2,12 +2,14 @@ Esta aplicación web es el resultado de un tutorial brindado por la Institucion 
 con explicaciones paso a paso en la creación de la página web.
 
 ¿Qué se puede hacer?
+
 Registrar un usuario.
 Logear y deslogear un usuario ya registrado.
 Editar el perfil del usuario registrado.
 Agregar, editar y eliminar las mascotas que el usuario posea.
 
 Características:
+
 Aplicación web creada con Spring con el lenguaje de programación Java.
 Tiene Spring Security para que cuando el usuario se logee, se cree una sesión que permita ingresar a ciertas partes del sitio, que sin una no se podria.
 Utiliza el motor de plantillas Thymeleaf para que las vistas sean dinámicas.
@@ -16,6 +18,7 @@ Tiene el driver de MySQL para comunicarse con la base de datos.
 Validaciones en todos los formularios.
 
 Aclaraciones:
+
 La aplicación no está terminada y/o tiene bugs en algunas partes.
 Requiere tener instalado Spring Tool Suite 4 y MySQL Workbench para levantar el sitio.
 
