@@ -1,49 +1,34 @@
-GitHub Markup
-This library is the first step of a journey that every markup file in a repository goes on before it is rendered on GitHub.com:
+Esta aplicación web es el resultado de un tutorial brindado por la Institucion Egg en el curso Programador Web Full Stack Java. El mismo consistía en una serie de videos
+con explicaciones paso a paso en la creación de la página web.
 
-github-markup selects an underlying library to convert the raw markup to HTML. See the list of supported markup formats below.
-The HTML is sanitized, aggressively removing things that could harm you and your kin—such as script tags, inline-styles, and class or id attributes.
-Syntax highlighting is performed on code blocks. See github/linguist for more information about syntax highlighting.
-The HTML is passed through other filters that add special sauce, such as emoji, task lists, named anchors, CDN caching for images, and autolinking.
-The resulting HTML is rendered on GitHub.com.
-Please note that only the first step is covered by this gem — the rest happens on GitHub.com. In particular, markup itself does no sanitization of the resulting HTML, as it expects that to be covered by whatever pipeline is consuming the HTML.
+¿Qué se puede hacer?
+Registrar un usuario.
+Logear y deslogear un usuario ya registrado.
+Editar el perfil del usuario registrado.
+Agregar, editar y eliminar las mascotas que el usuario posea.
 
-Please see our contributing guidelines before reporting an issue.
+Características:
+Aplicación web creada con Spring con el lenguaje de programación Java.
+Tiene Spring Security para que cuando el usuario se logee, se cree una sesión que permita ingresar a ciertas partes del sitio, que sin una no se podria.
+Utiliza el motor de plantillas Thymeleaf para que las vistas sean dinámicas.
+Utiliza la API de JPA para persistir información en una base de datos.
+Tiene el driver de MySQL para comunicarse con la base de datos.
+Validaciones en todos los formularios.
 
-Markups
-The following markups are supported. The dependencies listed are required if you wish to run the library. You can also run script/bootstrap to fetch them all.
+Aclaraciones:
+La aplicación no está terminada y/o tiene bugs en algunas partes.
+Requiere tener instalado Spring Tool Suite 4 y MySQL Workbench para levantar el sitio.
 
-.markdown, .mdown, .mkdn, .md -- gem install commonmarker (https://github.com/gjtorikian/commonmarker)
-.textile -- gem install RedCloth (https://github.com/jgarber/redcloth)
-.rdoc -- gem install rdoc -v 3.6.1
-.org -- gem install org-ruby (https://github.com/wallyqs/org-ruby)
-.creole -- gem install creole (https://github.com/larsch/creole)
-.mediawiki, .wiki -- gem install wikicloth (https://github.com/nricciar/wikicloth)
-.rst -- pip install docutils
-.asciidoc, .adoc, .asc -- gem install asciidoctor (http://asciidoctor.org)
-.pod -- Pod::Simple::XHTML comes with Perl >= 5.10. Lower versions should install Pod::Simple from CPAN.
-Installation
-gem install github-markup
-or
-
-bundle install
-from this directory.
-
-Usage
-Basic form:
-
-require 'github/markup'
-
-GitHub::Markup.render('README.markdown', "* One\n* Two")
-More realistic form:
-
-require 'github/markup'
-
-GitHub::Markup.render(file, File.read(file))
-And a convenience form:
-
-require 'github/markup'
-
-GitHub::Markup.render_s(GitHub::Markups::MARKUP_MARKDOWN, "* One\n* Two")
-Contributing
-See Contributing.
+¿Cómo usar?
+1) Clonar o pullear el proyecto y abrirlo en Spring Tool Suite 4.
+2) Editar el archivo "application.yml" donde dice "username" y "password" para que coincidan con el usuario y contraseña del MySQL Workbench.
+3) Siguiendo en "application.yml", tener una base de datos creada con el nombre que aparece en "url" después de "3306/", o también se puede cambiar el nombre en el
+archivo y crear la base de datos con ese nuevo nombre. También asegurarse de que la base de datos esté creada en una conexión de MySQL donde el nombre del host sea
+"localhost" y el puerto "3306".
+4) En Spring Tool Suite 4, click derecho en el proyecto > Run As > Spring Boot App.
+5) Ir al navegador y entrar en "http://localhost:8080/".
+6) Si todo esto no funciona, probar de ejecutar estas lineas de codigo en Workbench:
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+GRANT ALL PRIVILEGES ON * . * TO 'root'@'localhost';
+FLUSH PRIVILEGES;
+(Esto ya va a dejar el usuario y contraseña como "root").
